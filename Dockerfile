@@ -7,7 +7,7 @@ COPY . .
 
 RUN uv sync --no-cache-dir
 
-CMD ["uv", "run", "streamlit", "run", "src/app.py"]
+CMD ["uv", "run", "streamlit", "run", "src/Home.py"]
 
 
 

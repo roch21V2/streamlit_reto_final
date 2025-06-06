@@ -235,7 +235,7 @@ elif selected_table == "ocupaciones_time_series_by_entidad":
         value=f"{mean_ocupation_rate:,.2f} %")
     with col2:
         st.metric(
-        label="Total Number of Poeple that Stayed",
+        label="Total Number of People that Stayed",
         value=f"{int(total_num_people):,}")
     with col3:
         st.metric(
