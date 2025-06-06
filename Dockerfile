@@ -1,13 +1,18 @@
-FROM python:3.10-slim
+FROM --platform=linux/amd64 ghcr.io/astral-sh/uv:python3.10-bookworm-slim
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 WORKDIR /app
 
-COPY . .
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-install-project --no-editable
 
-RUN uv sync --no-cache-dir
+ADD src/ src/
+ADD pyproject.toml pyproject.toml
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-editable
 
 CMD ["uv", "run", "streamlit", "run", "src/Home.py"]
-
-
-
