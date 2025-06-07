@@ -1,15 +1,11 @@
-import streamlit as st 
-from utils.functions import load_data
-import plotly.express as px 
-import plotly.graph_objects as go
-
+import streamlit as st
 
 st.set_page_config(
-        page_title="BookML Dashboard",
-        page_icon="📚",
-        layout="wide",
-        initial_sidebar_state="expanded")
-    
+    page_title="BookML Dashboard",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 
 def main():
@@ -43,12 +39,16 @@ def main():
     ---
     
     ### 📂 **Source Code**
-    [🔗 View the project on GitHub](https://github.com/Azahramirez/claseMreporeto)
+    
+    * **Models** 
+      [*(View the project on GitHub)*](https://github.com/Azahramirez/claseMreporeto)
+
+    * **Backend** 
+      [*(View the project on GitHub)*](https://github.com/roch21V2/api)
+
+    * **Frontend** 
+      [*(View the project on GitHub)*](https://github.com/roch21V2/streamlit_reto_final)
     """)
-
-
-
-
 
 
 if __name__ == "__main__":
